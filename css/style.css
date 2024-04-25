@@ -1,0 +1,202 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url('https://fonts.googleapis.com/css?family=Poppins');
+}
+
+html, body{
+    font-family: 'Poppins', sans-serif;
+	text-rendering : optimizeLegibility;
+	-webkit-font-smoothing : antialiased;
+    padding: 0;
+    margin: 0;
+}
+.header{
+    height: 100px;
+    background: #5BBF2C;
+    color: #fff;
+    width: 100%;
+    margin: 0;
+}
+.header h1, .header h3{
+    padding-left: 20px;
+}
+.body{
+    padding: 0;
+    margin: 0;
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 500px;
+    align-items: center;
+}
+span.error{
+    color: red;
+    font-weight: bold;
+}
+span.success{
+    color: #5BBF2C;
+    font-weight: bold;
+}
+footer{
+    background: #9157CF;
+    width: 100%;
+    height: 60px;
+    color: #fff
+}
+footer p{
+    font-family: 'Poppins', sans-serif;
+	text-rendering : optimizeLegibility;
+	-webkit-font-smoothing : antialiased;
+    padding: 20px;
+    color:#fff;
+    text-align: center;
+}
+.panel-login{
+    border: 1px solid #f1f1f1;
+    border-radius: 4px;
+    padding: 20px;
+    width: 40%;
+    margin: 0 auto;
+}
+.panel{
+    border: 1px solid #f1f1f1;
+    border-radius: 4px;
+    padding: 0px;
+    width: 80%;
+    margin: 0 auto;
+    align-items: center;
+}
+.form input[type="text"],.form input[type="password"], select{
+    width: 95%;
+    padding: 10px;
+    border-radius:4px;
+    border:1px solid #d3d3d3;
+    margin-bottom: 4px;
+    margin-top: 4px;
+}
+
+.number{
+    padding: 10px;
+    border-radius:4px;
+    border:1px solid #d3d3d3;
+    margin-bottom: 4px;
+    margin-top: 4px;
+}
+
+button, .btn-link{
+    padding: 14px;
+    border-radius:4px;
+    border:1px solid #d3d3d3;
+    background: #5BBF2C;
+    color:#fff;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 4px;
+    margin-top: 4px;
+}
+.btn-link{
+    float: right;
+    text-decoration: none;
+    background: #5BBF2C;
+}
+button[type=reset]{
+    background: #d6d8db;
+    color:#1b1e21;
+}
+nav.navbar {
+    background-color: black;
+}
+
+nav ul{
+    background: #1b1e21;
+    margin: 0;
+    padding: 0;
+    height: 40px;
+}
+nav ul li{
+    display: inline-table;
+    margin: 10px;
+    color: #fff;
+}
+nav ul li:hover > a{
+    background: #F5AE68;
+    color: black;
+}
+nav ul li.active > a{
+    background: #F5AE68;
+    color:#1b1e21;
+    font-weight: bold;
+}
+nav ul li a{
+    color: white;
+    font-style: bold;
+    text-decoration: none;
+    padding: 10px;
+}
+nav ul li.right{
+    float: right;
+}
+.text-center{
+    text-align: center;
+}
+.table{
+    border-top:1px solid #ddd;
+    border-left:1px solid #ddd;
+    display: flex;
+    margin: 20px auto;
+
+    justify-content: center;
+    align-items: center;
+}
+.table th, .table td{
+    padding: 0px;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    text-align: center;
+    width: 120px;
+    height: 50px;
+}
+.txtnota{
+    width: 60px;
+    margin:0 auto;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.notify-alert-box{
+    font-family: 'Poppins', sans-serif;
+	text-rendering : optimizeLegibility;
+	-webkit-font-smoothing : antialiased;
+	width: 400px;
+	position: fixed;
+	left: 50%;
+	margin-left: -200px;
+	top: 0; /*top: -100%;*/
+	padding: 20px;
+	z-index: 100000;
+	background:#fff;
+	color: #333;
+	transition: all 1s ease-in-out;
+}
+.notify-alert-box img{
+
+	width: 70px;
+	float: left;
+	margin-right: 10px;
+}
+
+.buttons{
+    font-family: 'Poppins', sans-serif;
+	text-rendering : optimizeLegibility;
+	-webkit-font-smoothing : antialiased;
+	text-align: right;
+}
+.buttons button{
+	background:#024e73;
+	color: #fff;
+	border:0;
+	padding: 8px 15px;
+	font-size: 18px;
+	cursor: pointer;
+}

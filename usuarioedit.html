@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Edición de Usuario</title>
+    <meta name="description" content="Centro escolar" />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <meta name="description" content="Registro de Notas del Centro Escolar Profesor Lennin" />
+</head>
+
+<body>
+    <?php include("./Cabecera.php"); ?><br>
+
+    <div class="body">
+        <div class="panel">
+            <h4>Edición de Usuario</h4>
+            <form method="post" class="form" action="procesarusuario.php">
+                <!-- Agregar campo oculto para el ID del usuario -->
+                <input type="hidden" value="<?php echo $usuario['id']?>" name="id">
+                <label>Nombre de usuario</label><br>
+                <input type="text" required name="username" maxlength="15" value="<?php echo $usuario['username'] ?>">
+                <br>
+                <label>Contraseña</label><br>
+                <input type="password" required name="password" maxlength="15" value="<?php echo $usuario['password'] ?>">
+                <br><br>
+                <label>Nombre</label><br>
+                <input type="text" required name="nombre" maxlength="60" value="<?php echo $usuario['nombre'] ?>">
+                <br><br>
+                <label>Rol</label><br>
+                <select name="rol" required>
+                    <option value="Administrador" <?php if($usuario['rol'] == 'Administrador') { echo "selected";} ?>>Administrador</option>
+                    <option value="Profesor" <?php if($usuario['rol'] == 'Profesor') { echo "selected";} ?>>Profesor</option>
+                    <option value="Padre" <?php if($usuario['rol'] == 'Padre') { echo "selected";} ?>>Padre</option>
+                </select>
+                <br><br>
+                <button type="submit" name="modificar">Guardar Cambios</button> 
+                <a class="btn-link" href="listadousuarios.php">Ver Listado</a>
+
+                <?php
+                if(isset($_GET['err']))
+                    echo '<span class="error">Error al editar el registro</span>';
+                if(isset($_GET['info']))
+                    echo '<span class="success">¡Registro modificado correctamente!</span>';
+                ?>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

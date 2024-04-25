@@ -1,0 +1,85 @@
+<!-- alumnos.html -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Registro de alumno </title>
+    <meta name="description" content="Centro escolar" />
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    
+
+</head>
+
+<body>
+    <?php include("./Cabecera.php"); ?><br>
+
+    <div class="body">
+        <div class="panel">
+            <h4>Registro de Alumnos</h4>
+            <form method="post" class="form" action="procesaralumno.php">
+                <label>Nombres</label><br>
+                <input type="text" required name="nombres" maxlength="45">
+                <br>
+                <label>Apellidos</label><br>
+                <input type="text" required name="apellidos" maxlength="45">
+                <br><br>
+                <label>No de Lista</label><br>
+                <input type="number" min="1" class="number" name="numlista">
+                <br><br>
+                <label>Sexo</label><br>
+                <input required type="radio" name="genero" value="M"> Masculino
+                <input type="radio" name="genero" required value="F"> Femenino
+                <br><br>
+                <label>Grado</label><br>
+                <select name="grado" required>
+                    <?php foreach ($grados as $grado):?>
+                        <option value="<?php echo $grado['id'] ?>"><?php echo $grado['nombre'] ?></option>
+                    <?php endforeach;?>
+                </select>
+                <br><br>
+                <label>Sección</label><br>
+                <?php foreach ($secciones as $seccion):?>
+                    <input type="radio" name="seccion" required value="<?php echo $seccion['id'] ?>">Sección <?php echo $seccion['nombre'] ?>
+                <?php endforeach;?>
+                <br><br>
+                <label>CURP</label><br>
+                <input type="text" required name="curp" maxlength="18">
+                <br><br>
+                <label>Contacto de Emergencia</label><br>
+                <input type="text" required name="contacto" maxlength="20">
+                <br><br>
+                <button type="submit" name="insertar" id="not">Guardar</button>
+                <button type="reset">Limpiar</button>
+                <a class="btn-link" href="listadoalumnos.view.php">Ver Listado</a>
+                <br><br>
+                <!-- Mostrando los mensajes que recibe a través de los parámetros en la URL -->
+                <?php
+                if(isset($_GET['err']))
+                    echo '<span class="error">Error al almacenar el registro</span>';
+                   
+                if(isset($_GET['info']))
+                    echo '<span class="success">¡Registro almacenado correctamente!</span>';
+                   
+                if(isset($_GET['err_curp']))
+                    echo '<span class="error">¡El CURP ya existe en la base de datos!</span>';
+                    
+                ?>
+            </form>
+            <?php
+            if(isset($_GET['err']))
+                echo '<span class="error">Error al guardar</span>';
+                
+            ?>
+        </div>
+    </div>
+</body>
+
+</html>

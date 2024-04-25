@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Listado de Usuarios</title>
+    <meta name="description" content="Centro escolar" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <?php include("./Cabecera.php"); ?>
+
+    <div class="body">
+        <div class="panel">
+            <h4>Listado de Usuarios</h4>
+            <table class="table" cellspacing="0" cellpadding="0">
+                <tr>
+                    <th>ID</th>
+                    <th>Usuario</th>
+                    <th>Nombre</th>
+                    <th>Rol</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                </tr>
+                <?php foreach ($usuarios as $usuario) : ?>
+                    <tr>
+                        <td align="center"><?php echo $usuario['id'] ?></td>
+                        <td><?php echo $usuario['username'] ?></td>
+                        <td><?php echo $usuario['nombre'] ?></td>
+                        <td><?php echo $usuario['rol'] ?></td>
+                        <td><a href="usuarioedit.view.php?id=<?php echo $usuario['id'] ?>">Editar</a></td>
+                        <td><a href="usuariodelete.php?id=<?php echo $usuario['id'] ?>">Eliminar</a></td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+            <br><br>
+            <a class="btn-link" href="usuarios.view.php">Agregar Usuario</a>
+            <br><br>
+            <!-- Mostrando los mensajes que recibe a través de los parámetros en la URL -->
+            <?php
+            if (isset($_GET['err']))
+                echo '<span class="error">Error al almacenar el registro</span>';
+            if (isset($_GET['info']))
+                echo '<span class="success">¡Registro almacenado correctamente!</span>';
+            ?>
+        </div>
+    </div>
+</body>
+
+</html>
